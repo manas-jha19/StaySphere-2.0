@@ -31,3 +31,27 @@ exports.getOneListing = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+exports.updateLsting = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const ListingData = req.body;
+    const updateListing = await Listing.findByIdAndUpdate(id, ListingData, {
+      new: true,
+    });
+
+    res.status(200).json(updateListing);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+exports.deleteListing = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const deleteListing = await Listing.findByIdAndDelete(id);
+    res.status(200).json(deleteListing);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
