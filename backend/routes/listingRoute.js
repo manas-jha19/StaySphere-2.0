@@ -19,7 +19,7 @@ router.get("/", getAllListings);
 router.get("/:id", getOneListing);
 
 // update Listing
-router.put("/:id", updateLsting);
+router.put("/:id", updateListing);
 
 // delete Listing
 router.delete("/:id", deleteListing);
